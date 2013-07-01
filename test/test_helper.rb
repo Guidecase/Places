@@ -1,3 +1,5 @@
+require 'ansi/code'
+require 'turn'
 require 'minitest/autorun'
 require_relative '../lib/places'
 

@@ -27,12 +27,12 @@ class Place
       where :city => /#{name}/i
     end
   
-    def self.search(country, alpha)
+    def search(country, alpha=nil)
       country ||= I18n.default_locale
       q = Place.where(:country => country.upcase)
     
       unless alpha.blank?
-        range_parts = alpha.split('-')
+        range_parts = alpha.downcase.split('-')
       
         if range_parts.length == 1
           q = q.where(:city => /^#{alpha}/i)
